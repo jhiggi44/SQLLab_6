@@ -7564,7 +7564,6 @@
       "path": "runtime.native.system.net.http/4.3.0",
       "files": [
         ".nupkg.metadata",
-        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/netstandard1.0/_._",
@@ -7591,7 +7590,6 @@
       "path": "runtime.native.system.security.cryptography.openssl/4.3.0",
       "files": [
         ".nupkg.metadata",
-        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/netstandard1.0/_._",
@@ -9859,7 +9857,6 @@
       "path": "system.reflection.emit.lightweight/4.3.0",
       "files": [
         ".nupkg.metadata",
-        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/MonoAndroid10/_._",
@@ -11713,6 +11710,7 @@
       "path": "system.threading.tasks.parallel/4.3.0",
       "files": [
         ".nupkg.metadata",
+        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/MonoAndroid10/_._",
@@ -12152,23 +12150,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Jordan Higgins\\.nuget\\packages\\": {},
+    "C:\\Users\\Quincy\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Jordan Higgins\\Desktop\\LibraryWebServerHandout\\LibraryWebServerHandout\\LibraryWebServer\\LibraryWebServer.csproj",
+      "projectUniqueName": "C:\\Users\\Quincy\\Desktop\\git\\cs6016\\SQLLab_6\\LibraryWebServerHandout\\LibraryWebServer\\LibraryWebServer.csproj",
       "projectName": "LibraryWebServer",
-      "projectPath": "C:\\Users\\Jordan Higgins\\Desktop\\LibraryWebServerHandout\\LibraryWebServerHandout\\LibraryWebServer\\LibraryWebServer.csproj",
-      "packagesPath": "C:\\Users\\Jordan Higgins\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Jordan Higgins\\Desktop\\LibraryWebServerHandout\\LibraryWebServerHandout\\LibraryWebServer\\obj\\",
+      "projectPath": "C:\\Users\\Quincy\\Desktop\\git\\cs6016\\SQLLab_6\\LibraryWebServerHandout\\LibraryWebServer\\LibraryWebServer.csproj",
+      "packagesPath": "C:\\Users\\Quincy\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Quincy\\Desktop\\git\\cs6016\\SQLLab_6\\LibraryWebServerHandout\\LibraryWebServer\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\Jordan Higgins\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Quincy\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
