@@ -12150,23 +12150,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Quincy\\.nuget\\packages\\": {},
+    "C:\\Users\\Jordan Higgins\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Quincy\\Desktop\\git\\cs6016\\SQLLab_6\\LibraryWebServerHandout\\LibraryWebServer\\LibraryWebServer.csproj",
+      "projectUniqueName": "C:\\Users\\Jordan Higgins\\Desktop\\lab_6\\LibraryWebServerHandout\\LibraryWebServer\\LibraryWebServer.csproj",
       "projectName": "LibraryWebServer",
-      "projectPath": "C:\\Users\\Quincy\\Desktop\\git\\cs6016\\SQLLab_6\\LibraryWebServerHandout\\LibraryWebServer\\LibraryWebServer.csproj",
-      "packagesPath": "C:\\Users\\Quincy\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Quincy\\Desktop\\git\\cs6016\\SQLLab_6\\LibraryWebServerHandout\\LibraryWebServer\\obj\\",
+      "projectPath": "C:\\Users\\Jordan Higgins\\Desktop\\lab_6\\LibraryWebServerHandout\\LibraryWebServer\\LibraryWebServer.csproj",
+      "packagesPath": "C:\\Users\\Jordan Higgins\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Jordan Higgins\\Desktop\\lab_6\\LibraryWebServerHandout\\LibraryWebServer\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\Quincy\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Jordan Higgins\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

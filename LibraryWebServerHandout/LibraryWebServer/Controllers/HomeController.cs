@@ -30,9 +30,7 @@ namespace LibraryWebServer.Controllers {
             // TODO: Fill in. Determine if login is successful or not.
             bool loginSuccessful = false;
 
-
             using (Team12LibraryContext db = new Team12LibraryContext()) {
-
                 var query =
                     from p in db.Patrons
                     where p.CardNum == cardnum
@@ -43,11 +41,13 @@ namespace LibraryWebServer.Controllers {
                     loginSuccessful = true;
                 }
 
+                //    system.diagnostics.debug.writeline("login " + v);
             }
 
             if (!loginSuccessful) {
                 return Json(new { success = false });
-            } else {
+            }
+            else {
                 user = name;
                 card = cardnum;
                 return Json(new { success = true });
@@ -78,9 +78,6 @@ namespace LibraryWebServer.Controllers {
         /// <returns>The JSON representation of the books</returns>
         [HttpPost]
         public ActionResult AllTitles() {
-
-            // TODO: Implement
-
             using (Team12LibraryContext db = new Team12LibraryContext()) {
                 var query =
                 from t in db.Titles
@@ -94,31 +91,12 @@ namespace LibraryWebServer.Controllers {
                 from cmbd2 in combined2.DefaultIfEmpty()
                 join p in db.Patrons
                 on cmbd2.CardNum equals p.CardNum into master
-                from something in master.DefaultIfEmpty()
+                from m in master.DefaultIfEmpty()
 
-                select new { isbn = t.Isbn, title = t.Title, author = t.Author, serial = cmbd == null? (decimal?)null:cmbd.Serial, name = something == null? "": something.Name};
+                select new { isbn = t.Isbn, title = t.Title, author = t.Author, serial = cmbd == null ? (decimal?)null : cmbd.Serial, name = m == null ? "" : m.Name };
                 return Json(query.ToArray());
             }
         }
-
-
-        public List<string> getBooksInInventory(Team12LibraryContext db) {
-
-            List<string> isbns = new List<string>();
-            var query =
-                from t in db.Titles
-                join i in db.Inventory
-                on t.Isbn equals i.Isbn into combined
-                select t;
-
-            foreach (var isbn in query) {
-                isbns.Add(Convert.ToString(isbn));
-            }
-
-            return isbns;
-        }
-
-     
 
         /// <summary>
         /// Returns a JSON array representing all books checked out by the logged in user 
@@ -130,12 +108,20 @@ namespace LibraryWebServer.Controllers {
         /// <returns>The JSON representation of the books</returns>
         [HttpPost]
         public ActionResult ListMyBooks() {
-            // TODO: Implement
-            return Json(null);
+            using (Team12LibraryContext db = new Team12LibraryContext()) {
+                var query =
+                    from c in db.CheckedOut
+                    where c.CardNum == card
+                    join i in db.Inventory
+                    on c.Serial equals i.Serial into Serials
+                    from s in Serials
+                    join t in db.Titles
+                    on s.Isbn equals t.Isbn
+                    select new { Title = t.Title, Author = t.Author, Serial = s.Serial };
+
+                return Json(query.ToArray());
+            }
         }
-
-
-       
 
 
         /// <summary>
@@ -149,7 +135,18 @@ namespace LibraryWebServer.Controllers {
         [HttpPost]
         public ActionResult CheckOutBook(int serial) {
             // You may have to cast serial to a (uint)
+            CheckedOut co = new CheckedOut { CardNum = (uint)card, Serial = (uint)serial };
 
+            using (Team12LibraryContext db = new Team12LibraryContext()) {
+                db.CheckedOut.Add(co);
+                try {
+                    db.SaveChanges();
+                }
+                catch (Exception e) {
+                    System.Diagnostics.Debug.WriteLine(e.Message);
+                    return Json(new { sucess = false });
+                }
+            }
 
             return Json(new { success = true });
         }
@@ -164,7 +161,23 @@ namespace LibraryWebServer.Controllers {
         /// <returns>Success</returns>
         [HttpPost]
         public ActionResult ReturnBook(int serial) {
-            // You may have to cast serial to a (uint)
+            using (Team12LibraryContext db = new Team12LibraryContext()) {
+                var query =
+                    from co in db.CheckedOut
+                    where co.Serial == serial && co.CardNum == card
+                    select co;
+
+                foreach (var q in query) {
+                    db.CheckedOut.Remove(q);
+                }
+                try {
+                    db.SaveChanges();
+                }
+                catch (Exception e) {
+                    System.Diagnostics.Debug.WriteLine(e.Message);
+                    return Json(new { sucess = false });
+                }
+            }
 
             return Json(new { success = true });
         }
@@ -194,7 +207,6 @@ namespace LibraryWebServer.Controllers {
 
             return View();
         }
-
 
         /// <summary>
         /// Return the About page.
@@ -239,4 +251,3 @@ namespace LibraryWebServer.Controllers {
         }
     }
 }
-
